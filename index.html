@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation</title>
+  </head>
+  <body>
+    <ul id="element">
+      <li class="list-item">First element</li>
+      <li class="list-item">Second element</li>
+      <li class="list-item">Third element</li>
+    </ul>
+    <table>
+      <tr>
+        <td>One</td>
+        <td>Two</td>
+      </tr>
+      <tr>
+        <td>Three</td>
+        <td>Four</td>
+      </tr>
+    </table>
+    <script>
+      //   //Root node
+      //   console.log(document.documentElement);
+      //   console.log(document.body);
+      //   console.log(document.head);
+
+      //   //Children node
+      //   console.log(document.body.children);
+      //   console.log(document.body.firstChild);
+      //   console.log(document.body.lastChild);
+
+      //   //for traversing the of children of the body using xyz variable
+      //   for (node of document.body.children) {
+      //     console.log(node);
+      //   }
+
+      //   //converting a the body and its  elements into the array form
+      //   const childrensOfBody = Array.from(document.body.children);
+      //   console.log(childrensOfBody);
+
+      //   //Children node with element
+      //   console.log(document.body.firstElementChild);
+      //   console.log(document.body.lastElementChild);
+
+      //   //Siblings
+      //   const ulTag = document.body.children[0];
+      //   console.log(ulTag.nextSibling);
+      //   console.log(ulTag.nextElementSibling);
+      //   const firstLi = ulTag.children[0];
+      //   const secondLi = ulTag.children[1];
+      //   console.log(secondLi.previousElementSibling.textContent);
+
+      //   //Table DOM Manipulation
+      //   const tableTag = document.body.children[1];
+      //   console.log(tableTag.tBodies[0].rows[0].cells[0].textContent);
+      //   //for styling
+      //   console.log(
+      //     (tableTag.tBodies[0].rows[0].cells[1].style = "background-color:blue")
+      //   );
+      //ID search note: When we give id to the tag then its become global variable
+      //method-1
+      //   element.style.background = "red";
+
+      //method-2 selector-1
+      //   const ulTag = document.getElementById("element");
+      //   ulTag.style.backgroundColor = "red";
+
+      //   //selector-2
+      //   listItem = document.getElementsByClassName("list-item");
+      //   console.log(listItem);
+
+      //   //selector-3
+      //   console.log(document.getElementsByTagName("table"));
+
+    //   // selector-4 note: it selects the first items only
+    //   const listItems = document.querySelector(".list-item"); //we can use both id and class both and select elements like css selector also
+    //   const abc = document.querySelectorAll("ul>li:last-child"); //like that we can select nth child also
+    //   const ab = document.querySelectorAll("ul>li:nth-child(2)");
+    //   console.log(abc[0].textContent);
+    //   console.log(listItems);
+
+    //   //for selecting all list items we use
+    //   const listItem = document.querySelectorAll(".list-item");
+    //   console.log(listItem);
+
+    //   //the difference between the query selector and getelementby is 
+    //   //the query selector is static since it passing values
+    //   //the getelementby is dynamic since it passing refenence 
+    </script>
+  </body>
+</html>

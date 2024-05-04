@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DOM Manipulation</title>
   </head>
-  <body>
-    <ul id="element">
+  <body id="body">
+    <ul id="element" data-="valid">
       <li class="list-item">First element</li>
       <li class="list-item">Second element</li>
       <li class="list-item">Third element</li>
     </ul>
+    <div class="allDivs">First Div</div>
+    <script>
+    //   const allDivs = document.getElementsByClassName("allDIvs");
+    //   console.log("allDivs");
+    </script>
+    <div class="allDivs">Second Div</div>
     <table>
       <tr>
         <td>One</td>
@@ -75,20 +81,30 @@
       //   //selector-3
       //   console.log(document.getElementsByTagName("table"));
 
-    //   // selector-4 note: it selects the first items only
-    //   const listItems = document.querySelector(".list-item"); //we can use both id and class both and select elements like css selector also
-    //   const abc = document.querySelectorAll("ul>li:last-child"); //like that we can select nth child also
-    //   const ab = document.querySelectorAll("ul>li:nth-child(2)");
-    //   console.log(abc[0].textContent);
-    //   console.log(listItems);
+      //   // selector-4 note: it selects the first items only
+      //   const listItems = document.querySelector(".list-item"); //we can use both id and class both and select elements like css selector also
+      //   const abc = document.querySelectorAll("ul>li:last-child"); //like that we can select nth child also
+      //   const ab = document.querySelectorAll("ul>li:nth-child(2)");
+      //   console.log(abc[0].textContent);
+      //   console.log(listItems);
 
-    //   //for selecting all list items we use
-    //   const listItem = document.querySelectorAll(".list-item");
-    //   console.log(listItem);
+      //   //for selecting all list items we use
+      //   const listItem = document.querySelectorAll(".list-item");
+      //   console.log(listItem);
 
-    //   //the difference between the query selector and getelementby is 
-    //   //the query selector is static since it passing values
-    //   //the getelementby is dynamic since it passing refenence 
+      //   //the difference between the query selector and getelementby is
+      //   //the query selector is static since it passing values
+      //   //the getelementby is dynamic since it passing refenence
+
+    //   console.log("allDivs");
+
+    //console.log(element.id); o/p: element(becoz id attribute is predefined);
+    //console.log(element.data) o/p: undef(becoz not predefined);
+
+    //for userdefined attribute
+    console.log(element.getAttribute('data'));
+    console.log(element.setAttribute('order-placed','pending'));
+    //hasAttribute and removeAttribute
     </script>
   </body>
 </html>

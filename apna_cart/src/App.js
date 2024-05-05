@@ -1,8 +1,9 @@
-import logo from "./logo.svg";
+import React, { useState } from "react";
+// import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
-import React, { useState } from "react";
+import Footer from "./components/Footer";
 
 function App() {
   const products = [
@@ -19,17 +20,25 @@ function App() {
   ];
 
   let [productList, setProductList] = useState(products);
+  let [totalAmount, setTotalAmount] = useState(0);
 
   const incrementQuantity = (index) => {
     let newProductList = [...productList];
+    let newTotalAmount = totalAmount;
     newProductList[index].quantity++;
+    newTotalAmount += newProductList[index].price;
+    setTotalAmount(newTotalAmount);
     setProductList(newProductList);
   };
   const decrementQuantity = (index) => {
     let newProductList = [...productList];
-    newProductList[index].quantity > 0
-      ? newProductList[index].quantity--
-      : newProductList[index].quantity = 0;
+    let newTotalAmount = totalAmount;
+
+    if (newProductList[index].quantity > 0) {
+      newProductList[index].quantity--;
+      newTotalAmount -= newProductList[index].price;
+    }
+    setTotalAmount(newTotalAmount);
     setProductList(newProductList);
   };
   return (
@@ -42,7 +51,7 @@ function App() {
           decrementQuantity={decrementQuantity}
         />
       </main>
-      {/* <Footer /> */}
+      <Footer totalAmount={totalAmount} />
     </>
   );
 }

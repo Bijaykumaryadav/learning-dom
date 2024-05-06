@@ -4,6 +4,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import ProductList from "./components/ProductList";
 import Footer from "./components/Footer";
+import AddItem from "./components/AddItem";
 
 function App() {
   const products = [
@@ -41,17 +42,52 @@ function App() {
     setTotalAmount(newTotalAmount);
     setProductList(newProductList);
   };
+
+  const resetQuantity = () => {
+    let newProductList = [...productList];
+    newProductList.map((products) => {
+      products.quantity = 0;
+    });
+    setProductList(newProductList);
+    setTotalAmount(0);
+  };
+
+  const removeItem = (index) => {
+    let newProductList = [...productList];
+    let newTotalAmount = totalAmount;
+    newTotalAmount -=
+      newProductList[index].quantity * newProductList[index].price;
+    newProductList.splice(index, 1);
+    console.log(newProductList);
+    setProductList(newProductList);
+    setTotalAmount(newTotalAmount);
+  };
+
+  const addItem = (name, price) => {
+    let newProductList = [...productList];
+    let newTotalAmount = totalAmount;
+    newProductList.push({
+      price: price,
+      name: name,
+      quantity: 0,
+    });
+    setProductList(newProductList);
+    setTotalAmount(newTotalAmount);
+  };
+
   return (
     <>
       <Navbar />
       <main className="container mt-5">
+        <AddItem addItem={addItem} />
         <ProductList
           product={productList}
           incrementQuantity={incrementQuantity}
           decrementQuantity={decrementQuantity}
+          removeItem={removeItem}
         />
       </main>
-      <Footer totalAmount={totalAmount} />
+      <Footer totalAmount={totalAmount} resetQuantity={resetQuantity} />
     </>
   );
 }

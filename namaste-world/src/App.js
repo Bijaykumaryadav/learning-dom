@@ -2,8 +2,10 @@
 import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
-import { Button, Container, Row, Col, Card } from "react-bootstrap"; // Import Row and Col
+import { Button, Container, Row, Card } from "react-bootstrap"; // Import Row and Col
 import { blog } from "./Data/blog";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-regular-svg-icons";
 
 function App() {
   let headerInfo = {
@@ -15,6 +17,7 @@ function App() {
     <div className="main">
       <Header headerInfo={headerInfo} cname="wscubetech" c="hello">
         <h1>Welcome to the bijays world</h1>
+        <FontAwesomeIcon icon={faWhatsapp} />
       </Header>
       {/* <Container fluid>
         <Container>
@@ -78,7 +81,7 @@ function App() {
       <Container>
         <Row>
           {blog.map((v, i) => {
-            return <ProductItems />;
+            return <ProductItems pitems={v} key={i} />;
           })}
         </Row>
       </Container>
@@ -89,19 +92,16 @@ function App() {
 
 export default App;
 
-function ProductItems() {
+function ProductItems({ pitems }) {
   return (
-    <Col lg="3" md="6" class="mb-4">
+    <div className="col-lg-3 mb-4">
       <Card>
         <Card.Body>
-          <Card.Title>Course1</Card.Title>
-          <Card.Text>
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </Card.Text>
+          <Card.Title>{pitems.title}</Card.Title>
+          <Card.Text>{pitems.body}</Card.Text>
           <Button variant="primary">Go somewhere</Button>
         </Card.Body>
       </Card>
-    </Col>
+    </div>
   );
 }

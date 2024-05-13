@@ -1,14 +1,10 @@
 import React from "react";
+import './Header.css'
 
 function Header({ headerInfo, cname, c }) {
   console.log(headerInfo, cname);
   return (
-    <div>
-      {c}
-      <h1>
-        Welcome to the Header section {headerInfo.email} {cname}
-      </h1>
-    </div>
+    <div className="header">Header Code</div>
   );
 }
 

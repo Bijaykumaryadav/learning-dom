@@ -93,7 +93,7 @@
   background-color: white;
 }
 
-.showModalDiv{
+.showModalDiv {
   top: 50%;
 }
 
@@ -102,4 +102,42 @@
   right: -30px;
   top: 100px;
   transform: rotate(90deg);
+}
+
+.faqouter {
+  width: 1320px;
+  margin: auto;
+}
+
+.faqItems {
+  border: 1px solid red;
+}
+
+.faqItems {
+  border: 1px solid red;
+  margin-bottom: 20px;
+}
+
+.faqItems h2 {
+  margin: 0px;
+  padding: 10px;
+  cursor: pointer;
+  background-color: #282c34;
+  color: white;
+  text-align: left;
+}
+
+.faqItems p {
+  text-align: left;
+  height: 0px;
+  transition: 0.5s;
+  transform: scaleY(0);
+  padding: 0px;
+  margin: 0px;
+}
+
+.activeAns {
+  height: auto !important;
+  transform: scaleY(1) !important;
+  padding: 10px !important;
 }

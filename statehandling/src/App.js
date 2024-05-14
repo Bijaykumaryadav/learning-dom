@@ -2,8 +2,11 @@ import logo from "./logo.svg";
 import "./App.css";
 import { useState } from "react";
 import btnModule from "./Button.module.css";
+// import { questions } from "./Data/faqQuestion";
+import Faqs from "./faqs";
 
 function App() {
+  // let [showAns, setShowAns] = useState(questions[0].qno);
   let [status, setStatus] = useState(false);
   let [pstatus, setPstatus] = useState(false);
   let [menuStatus, setMenuStatus] = useState(false);
@@ -11,13 +14,36 @@ function App() {
 
   return (
     <div className="App">
-      <button className="bg-[red] p-[10px] mr-4">Add Data</button>
-      <button className="en" onClick={() => setModalstatus(!modalstatus)}>
+      <div>
+        <Faqs />
+        {/* method-1 for showing faq */}
+        {/* <h1>Frequently Asked Questions (FAQs)</h1>
+        <div className="faqouter">
+          {questions.map((faqItems, i) => {
+            return (
+              <div className="faqItems">
+                <h2 onClick={() => setShowAns(faqItems.qno)}>
+                  {faqItems.question}
+                </h2>
+                <p className={showAns === faqItems.qno ? "activeAns" : ""}>
+                  {faqItems.answer}
+                </p>
+              </div>
+            );
+          })}
+        </div> */}
+      </div>
+      <button className="en" onClick={() => setModalstatus(true)}>
         Enquiry Now
       </button>
-      <div className={`modalOverLay ${modalstatus ? "modalShow" : ""}`}></div>
+      <div
+        onClick={() => setModalstatus(false)}
+        className={`modalOverLay ${modalstatus ? "modalShow" : ""}`}
+      ></div>
       <div className={`ModalDiv ${modalstatus ? "showModalDiv" : ""}`}>
-        <h3>Enquiry Now</h3>
+        <h3>
+          Enquiry Now <span onClick={() => setModalstatus(false)}>&times;</span>
+        </h3>
       </div>
       <button className="micon" onClick={() => setMenuStatus(!menuStatus)}>
         {menuStatus ? <span>&times;</span> : <span>&#9776;</span>}

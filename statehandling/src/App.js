@@ -4,6 +4,11 @@ import { useState } from "react";
 import btnModule from "./Button.module.css";
 // import { questions } from "./Data/faqQuestion";
 import Faqs from "./faqs";
+import "react-notifications/lib/notifications.css";
+import {
+  NotificationContainer,
+  NotificationManager,
+} from "react-notifications";
 
 function App() {
   // let [showAns, setShowAns] = useState(questions[0].qno);
@@ -11,9 +16,17 @@ function App() {
   let [pstatus, setPstatus] = useState(false);
   let [menuStatus, setMenuStatus] = useState(false);
   let [modalstatus, setModalstatus] = useState(false);
+  let showNotification = () => {
+    // NotificationManager.info("Welcome to bijays world ");
+    // NotificationManager.success("Success message", "Title here");
+    // NotificationManager.warning("Warning message", "Close after 3000ms", 500);
+    // NotificationManager.error("Error message", "Click me!", 500);
+  };
 
   return (
     <div className="App">
+      <NotificationContainer />
+      <button onClick={showNotification}>Save</button>
       <div>
         <Faqs />
         {/* method-1 for showing faq */}
@@ -21,7 +34,7 @@ function App() {
         <div className="faqouter">
           {questions.map((faqItems, i) => {
             return (
-              <div className="faqItems">
+              <div className="faqItems" key={faqItems.qno}}>
                 <h2 onClick={() => setShowAns(faqItems.qno)}>
                   {faqItems.question}
                 </h2>
